@@ -16,6 +16,6 @@ export default {
     secondary: '#ececec',
     darktext: '#5e2abf',
     text: '#ececec',
-    lightText: 'white',
+    lighttext: 'white',
   },
 };

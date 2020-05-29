@@ -3,7 +3,7 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
-import Navigator from './root-navigator';
+import Navigator from './navigator';
 import theme from './commons/theme';
 
 const App = () => {
