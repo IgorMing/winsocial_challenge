@@ -11,7 +11,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <StatusBar
         barStyle={theme.statusBar?.content}
-        backgroundColor={theme.statusBar?.background}
+        backgroundColor={theme.statusBar?.darktext}
       />
       <Navigator />
     </ThemeProvider>

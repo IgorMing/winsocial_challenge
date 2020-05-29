@@ -13,9 +13,8 @@ const RootNavigator = () => {
   const options = {
     title: '',
     headerBackTitleVisible: false,
-    headerStyle: {
-      backgroundColor: theme.colors.primary,
-    },
+    headerTransparent: true,
+    headerStyle: {},
     headerTintColor: theme.colors.lighttext,
   };
 
