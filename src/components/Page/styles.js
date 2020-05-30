@@ -20,16 +20,6 @@ export default {
   `,
 };
 
-export const Title = styled.Text`
-  font-size: 22px;
-  color: ${({ theme }) => theme.colors.lighttext};
-  padding-bottom: 30px;
-`;
-
-export const Bold = styled(Title)`
-  font-weight: bold;
-`;
-
 export const Input = styled.TextInput.attrs({
   placeholderTextColor: 'lightgray',
   returnKeyType: 'next',
