@@ -6,6 +6,8 @@ import { GradientBG } from '../../commons/styles';
 
 const Page = ({
   buttonText = 'Avançar',
+  secure = false,
+  onPress,
   percentage = 0,
   placeholder,
   title,
@@ -15,8 +17,8 @@ const Page = ({
       <GradientBG>
         <Containers.Main>
           {title}
-          <Input placeholder={placeholder} />
-          <Button>
+          <Input placeholder={placeholder} secureTextEntry={secure} />
+          <Button onPress={onPress}>
             <AnimatedCircularProgress
               size={110}
               width={3}
