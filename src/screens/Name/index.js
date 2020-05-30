@@ -20,7 +20,7 @@ const NameScreen = () => {
               fill={15}
               tintColor="white"
               backgroundColor="#3d5875">
-              {fill => <Button.Text>Avançar</Button.Text>}
+              {() => <Button.Text>Avançar</Button.Text>}
             </AnimatedCircularProgress>
           </Button>
         </Containers.Main>

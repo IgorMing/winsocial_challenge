@@ -13,7 +13,7 @@ const Signin = ({ navigation }) => {
           onPress={() => {
             navigation.navigate('Name');
           }}>
-          <Button.Text>Start</Button.Text>
+          <Button.Text>Onboarding</Button.Text>
         </Button.Container>
       </GradientBG>
     </Container>

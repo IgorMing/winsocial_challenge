@@ -16,7 +16,6 @@ export default {
   Main: styled.View`
     flex: 1;
     padding-top: 150px;
-    /* justify-content: center; */
     align-items: flex-start;
   `,
 };
@@ -33,11 +32,13 @@ export const Bold = styled(Title)`
 
 export const Input = styled.TextInput.attrs({
   placeholderTextColor: 'lightgray',
+  returnKeyType: 'next',
 })`
   font-size: 22px;
   width: ${CONSIDERED_WIDTH}px;
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.lighttext};
+  color: ${({ theme }) => theme.colors.lighttext};
 `;
 
 export const Button = styled.TouchableOpacity`
