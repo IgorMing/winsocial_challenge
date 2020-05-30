@@ -1,24 +1,23 @@
 import styled from 'styled-components/native';
 
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('screen');
 
 const CONSIDERED_WIDTH = SCREEN_WIDTH * 0.8;
 
 export default {
-  Main: styled.SafeAreaView`
+  Keyboard: styled.KeyboardAvoidingView.attrs({
+    behavior: Platform.OS === 'ios' ? 'padding' : 'height',
+  })`
+    width: ${SCREEN_WIDTH}px;
     flex: 1;
-    background-color: ${({ theme }) => theme.colors.background};
   `,
-  TopContainer: styled.View`
-    flex: 5;
-    justify-content: center;
-    align-items: center;
-  `,
-  BottomContainer: styled.View`
+  Main: styled.View`
     flex: 1;
-    justify-content: flex-end;
+    padding-top: 150px;
+    /* justify-content: center; */
+    align-items: flex-start;
   `,
 };
 
@@ -42,14 +41,16 @@ export const Input = styled.TextInput.attrs({
 `;
 
 export const Button = styled.TouchableOpacity`
+  position: absolute;
+  bottom: 60px;
   display: flex;
+  align-self: center;
   justify-content: center;
   align-items: center;
-  width: ${SCREEN_WIDTH}px;
+  width: 100px;
   height: 70px;
-  background-color: ${({ theme }) => theme.colors.secondary};
 `;
 Button.Text = styled.Text`
-  color: ${({ theme }) => theme.colors.darktext};
+  color: ${({ theme }) => theme.colors.lighttext};
   font-size: 20px;
 `;

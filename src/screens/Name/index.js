@@ -1,24 +1,31 @@
 import React from 'react';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
+
 import Containers, { Input, Title, Bold, Button } from './styles';
 import { GradientBG } from '../../commons/styles';
 
 const NameScreen = () => {
   return (
-    <Containers.Main>
+    <Containers.Keyboard>
       <GradientBG>
-        <Containers.TopContainer>
+        <Containers.Main>
           <Title>
             Digite seu <Bold>nome completo</Bold>
           </Title>
           <Input placeholder="Ex: João da Silva" />
-        </Containers.TopContainer>
-        <Containers.BottomContainer>
           <Button>
-            <Button.Text>Avançar</Button.Text>
+            <AnimatedCircularProgress
+              size={110}
+              width={3}
+              fill={15}
+              tintColor="white"
+              backgroundColor="#3d5875">
+              {fill => <Button.Text>Avançar</Button.Text>}
+            </AnimatedCircularProgress>
           </Button>
-        </Containers.BottomContainer>
+        </Containers.Main>
       </GradientBG>
-    </Containers.Main>
+    </Containers.Keyboard>
   );
 };
 
