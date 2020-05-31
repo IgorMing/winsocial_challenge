@@ -1,10 +1,11 @@
 import React, { useReducer, useLayoutEffect } from 'react';
-import Page from '../../components/Page';
-import { Bold, Title } from '../../components/Text/styles';
-import reducer, { INITIAL_STATE, update, goBack, next } from './duck';
-import { getStepByIndex, orderedKeys } from './steps';
 import { HeaderBackButton } from '@react-navigation/stack';
 import { useTheme } from 'styled-components';
+
+import reducer, { INITIAL_STATE, update, goBack, next } from './duck';
+import { getStepByIndex, orderedKeys } from './steps';
+import Page from '../../components/Page';
+import { Bold, Title } from '../../components/Text/styles';
 
 const Onboarding = ({ navigation }) => {
   const theme = useTheme();
@@ -46,7 +47,7 @@ const Onboarding = ({ navigation }) => {
     <Page
       keyboardType={step.keyboardType}
       onChangeText={text => dispatch(update({ currentIndex, value: text }))}
-      onPress={nextStep}
+      nextStep={nextStep}
       percentage={step.percentage}
       placeholder={step.placeholder}
       secure={step.secure}

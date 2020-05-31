@@ -9,12 +9,16 @@ const Page = ({
   keyboardType = 'default',
   secure = false,
   onChangeText,
-  onPress,
+  nextStep,
   percentage = 0,
   placeholder,
   title,
   value = '',
 }) => {
+  function next() {
+    nextStep(value);
+  }
+
   return (
     <Containers.Keyboard>
       <GradientBG>
@@ -23,11 +27,12 @@ const Page = ({
           <Input
             keyboardType={keyboardType}
             onChangeText={onChangeText}
+            onSubmitEditing={next}
             value={value}
             placeholder={placeholder}
             secureTextEntry={secure}
           />
-          <Button onPress={() => onPress(value)}>
+          <Button onPress={next}>
             <AnimatedCircularProgress
               size={110}
               width={3}
