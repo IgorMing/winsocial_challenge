@@ -23,11 +23,6 @@ const Onboarding = ({ navigation }) => {
               return;
             }
 
-            if (currentIndex === orderedKeys.length - 1) {
-              navigation.navigate('TakePicture');
-              return;
-            }
-
             dispatch(goBack());
           }}
           labelVisible={false}
@@ -36,13 +31,22 @@ const Onboarding = ({ navigation }) => {
     });
   }, [currentIndex, navigation, theme.colors.lighttext]);
 
+  function nextStep() {
+    if (currentIndex === orderedKeys.length - 1) {
+      navigation.navigate('TakePicture');
+      return;
+    }
+
+    dispatch(next());
+  }
+
   const value = state[orderedKeys[currentIndex]];
 
   return (
     <Page
       keyboardType={step.keyboardType}
       onChangeText={text => dispatch(update({ currentIndex, value: text }))}
-      onPress={() => dispatch(next())}
+      onPress={nextStep}
       percentage={step.percentage}
       placeholder={step.placeholder}
       secure={step.secure}
