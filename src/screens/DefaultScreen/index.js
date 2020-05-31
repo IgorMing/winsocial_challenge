@@ -1,8 +1,8 @@
 import React, { useReducer, useLayoutEffect } from 'react';
 import Page from '../../components/Page';
 import { Bold, Title } from '../../components/Text/styles';
-import reducer, { INITIAL_STATE, update, goBack } from './duck';
-import { getStepByIndex } from './steps';
+import reducer, { INITIAL_STATE, update, goBack, next } from './duck';
+import { getStepByIndex, orderedKeys } from './steps';
 import { HeaderBackButton } from '@react-navigation/stack';
 import { useTheme } from 'styled-components';
 
@@ -11,7 +11,6 @@ const DefaultScreen = ({ navigation }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   const { currentIndex } = state;
   const step = getStepByIndex(currentIndex);
-  console.log(state);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -32,9 +31,13 @@ const DefaultScreen = ({ navigation }) => {
     });
   }, [currentIndex, navigation, theme.colors.lighttext]);
 
+  const value = state[orderedKeys[currentIndex]];
+
   return (
     <Page
-      onPress={() => dispatch(update())}
+      keyboardType={step.keyboardType}
+      onChangeText={text => dispatch(update({ currentIndex, value: text }))}
+      onPress={() => dispatch(next())}
       percentage={step.percentage}
       placeholder={step.placeholder}
       secure={step.secure}
@@ -44,6 +47,7 @@ const DefaultScreen = ({ navigation }) => {
           <Bold> {step.bold}</Bold>
         </Title>
       }
+      value={value}
     />
   );
 };

@@ -10,18 +10,21 @@ const steps = [
     placeholder: 'Ex: joao@dominio.com',
     title: 'Digite seu',
     bold: 'email',
+    keyboardType: 'email-address',
   },
   {
     key: 'phone',
     placeholder: 'Ex: (19) 99573-4065',
     title: 'Digite seu',
     bold: 'celular',
+    keyboardType: 'phone-pad',
   },
   {
     key: 'doc',
     placeholder: 'Ex: 335.264.698-81',
     title: 'Digite seu',
     bold: 'CPF',
+    keyboardType: 'numeric',
   },
   {
     key: 'password',

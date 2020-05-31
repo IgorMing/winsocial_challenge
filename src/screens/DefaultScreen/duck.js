@@ -2,6 +2,7 @@ import { orderedKeys } from './steps';
 
 // Actions
 const UPDATE = 'ONBOARDING/UPDATE';
+const NEXT = 'ONBOARDING/NEXT';
 const GOBACK = 'ONBOARDING/GOBACK';
 
 const initializedKeys = orderedKeys.reduce((acc, curr) => {
@@ -20,8 +21,12 @@ export default function reducer(state = INITIAL_STATE, action) {
     case UPDATE:
       return {
         ...state,
+        ...action.payload,
+      };
+    case NEXT:
+      return {
+        ...state,
         currentIndex: state.currentIndex + 1,
-        // ...action.payload,
       };
     case GOBACK:
       return {
@@ -34,9 +39,18 @@ export default function reducer(state = INITIAL_STATE, action) {
 }
 
 // Action Creators
-export function update() {
+export function update({ currentIndex, value }) {
   return {
     type: UPDATE,
+    payload: {
+      [orderedKeys[currentIndex]]: value,
+    },
+  };
+}
+
+export function next() {
+  return {
+    type: NEXT,
   };
 }
 
