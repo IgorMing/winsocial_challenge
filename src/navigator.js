@@ -5,6 +5,7 @@ import { useTheme } from 'styled-components';
 
 import HomeScreen from './screens/Home';
 import Onboarding from './screens/Onboarding';
+import TakePicture from './screens/TakePicture';
 
 const Stack = createStackNavigator();
 
@@ -34,7 +35,7 @@ const RootNavigator = () => {
         <Stack.Screen
           options={options}
           name="TakePicture"
-          component={Onboarding}
+          component={TakePicture}
         />
       </Stack.Navigator>
     </NavigationContainer>
