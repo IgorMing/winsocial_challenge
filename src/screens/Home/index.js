@@ -11,7 +11,7 @@ const Signin = ({ navigation }) => {
         <Title />
         <Button.Container
           onPress={() => {
-            navigation.navigate('Name');
+            navigation.navigate('Onboarding');
           }}>
           <Button.Text>Onboarding</Button.Text>
         </Button.Container>
