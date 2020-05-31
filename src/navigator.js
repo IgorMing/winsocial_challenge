@@ -1,18 +1,22 @@
 import React from 'react';
-import {
-  createStackNavigator,
-  HeaderBackButton,
-} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
 
 import HomeScreen from './screens/Home';
-import DefaultScreen from './screens/DefaultScreen';
+import Onboarding from './screens/Onboarding';
 
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   const theme = useTheme();
+  const options = {
+    title: '',
+    headerBackTitleVisible: false,
+    headerTransparent: true,
+    headerStyle: {},
+    headerTintColor: theme.colors.lighttext,
+  };
 
   return (
     <NavigationContainer>
@@ -23,15 +27,14 @@ const RootNavigator = () => {
           component={HomeScreen}
         />
         <Stack.Screen
-          options={{
-            title: '',
-            headerBackTitleVisible: false,
-            headerTransparent: true,
-            headerStyle: {},
-            headerTintColor: theme.colors.lighttext,
-          }}
+          options={options}
           name="Onboarding"
-          component={DefaultScreen}
+          component={Onboarding}
+        />
+        <Stack.Screen
+          options={options}
+          name="TakePicture"
+          component={Onboarding}
         />
       </Stack.Navigator>
     </NavigationContainer>

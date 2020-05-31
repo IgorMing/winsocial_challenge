@@ -6,7 +6,7 @@ import { getStepByIndex, orderedKeys } from './steps';
 import { HeaderBackButton } from '@react-navigation/stack';
 import { useTheme } from 'styled-components';
 
-const DefaultScreen = ({ navigation }) => {
+const Onboarding = ({ navigation }) => {
   const theme = useTheme();
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   const { currentIndex } = state;
@@ -20,6 +20,11 @@ const DefaultScreen = ({ navigation }) => {
           onPress={() => {
             if (currentIndex === 0) {
               onPress();
+              return;
+            }
+
+            if (currentIndex === orderedKeys.length - 1) {
+              navigation.navigate('TakePicture');
               return;
             }
 
@@ -52,4 +57,4 @@ const DefaultScreen = ({ navigation }) => {
   );
 };
 
-export default DefaultScreen;
+export default Onboarding;
