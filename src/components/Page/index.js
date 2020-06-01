@@ -1,5 +1,6 @@
 import React from 'react';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import { useTheme } from 'styled-components';
 
 import Containers, { Input, Button } from './styles';
 import { GradientBG } from '../../commons/styles';
@@ -15,6 +16,8 @@ const Page = ({
   title,
   value = '',
 }) => {
+  const theme = useTheme();
+
   function next() {
     nextStep(value);
   }
@@ -38,7 +41,7 @@ const Page = ({
               width={3}
               fill={percentage}
               tintColor="white"
-              backgroundColor="#3d5875">
+              backgroundColor={theme.colors.border}>
               {() => <Button.Text>{buttonText}</Button.Text>}
             </AnimatedCircularProgress>
           </Button>

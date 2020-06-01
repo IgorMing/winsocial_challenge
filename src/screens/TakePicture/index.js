@@ -31,7 +31,9 @@ export default class TakePicture extends Component {
 
     try {
       const data = await this.camera.current.takePictureAsync(pictureOptions);
-      console.log('picture', data.base64);
+      this.props.navigation.navigate('PicturePreview', {
+        image: data.base64,
+      });
     } catch (err) {
       console.log(err);
     }

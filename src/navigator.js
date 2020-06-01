@@ -6,6 +6,7 @@ import { useTheme } from 'styled-components';
 import HomeScreen from './screens/Home';
 import Onboarding from './screens/Onboarding';
 import TakePicture from './screens/TakePicture';
+import PicturePreview from './screens/PicturePreview';
 
 const Stack = createStackNavigator();
 
@@ -41,6 +42,18 @@ const RootNavigator = () => {
           }}
           name="TakePicture"
           component={TakePicture}
+        />
+        <Stack.Screen
+          options={{
+            title: 'Verifique a foto tirada',
+            headerBackTitleVisible: false,
+            headerTintColor: theme.colors.lighttext,
+            headerStyle: {
+              backgroundColor: theme.colors.darktext,
+            },
+          }}
+          name="PicturePreview"
+          component={PicturePreview}
         />
       </Stack.Navigator>
     </NavigationContainer>
