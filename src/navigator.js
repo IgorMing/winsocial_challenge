@@ -11,13 +11,6 @@ const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   const theme = useTheme();
-  const options = {
-    title: '',
-    headerBackTitleVisible: false,
-    headerTransparent: true,
-    headerStyle: {},
-    headerTintColor: theme.colors.lighttext,
-  };
 
   return (
     <NavigationContainer>
@@ -28,12 +21,24 @@ const RootNavigator = () => {
           component={HomeScreen}
         />
         <Stack.Screen
-          options={options}
+          options={{
+            title: '',
+            headerBackTitleVisible: false,
+            headerTransparent: true,
+            headerTintColor: theme.colors.lighttext,
+          }}
           name="Onboarding"
           component={Onboarding}
         />
         <Stack.Screen
-          options={options}
+          options={{
+            title: 'Positione seu rosto',
+            headerBackTitleVisible: false,
+            headerTintColor: theme.colors.lighttext,
+            headerStyle: {
+              backgroundColor: theme.colors.darktext,
+            },
+          }}
           name="TakePicture"
           component={TakePicture}
         />

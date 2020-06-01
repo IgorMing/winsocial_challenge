@@ -12,6 +12,7 @@ const initializedKeys = orderedKeys.reduce((acc, curr) => {
 
 export const INITIAL_STATE = {
   currentIndex: 0,
+  base64picture: null,
   ...initializedKeys,
 };
 
