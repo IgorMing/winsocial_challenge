@@ -2,7 +2,8 @@ import styled from 'styled-components/native';
 
 export default styled.View`
   flex: 1;
-  justify-content: center;
+  padding-top: 80px;
+  /* justify-content: center; */
   align-items: center;
 `;
 
@@ -13,4 +14,10 @@ export const Picture = styled.Image.attrs(({ image }) => ({
 }))`
   height: 300px;
   width: 300px;
+`;
+
+export const PictureContainer = styled.View`
+  border-radius: 150px;
+  border: 4px solid ${({ theme }) => theme.colors.border};
+  overflow: hidden;
 `;
