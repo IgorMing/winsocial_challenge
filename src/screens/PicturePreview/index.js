@@ -35,6 +35,17 @@ const PicturePreview = ({ navigation, route }) => {
     getInfo();
   }, [imageUri]);
 
+  function getGender(genderChar) {
+    switch (genderChar) {
+      case 'M':
+        return 'Masculino';
+      case 'F':
+        return 'Feminino';
+      default:
+        return 'Gênero não identificado';
+    }
+  }
+
   function renderData() {
     if (loading) {
       return <ActivityIndicator size="large" />;
@@ -52,7 +63,7 @@ const PicturePreview = ({ navigation, route }) => {
         </Info.IndividualContainer>
         <Info.IndividualContainer>
           <Info.Label>Gênero:</Info.Label>
-          <Info.Data>{gender}</Info.Data>
+          <Info.Data>{getGender(gender)}</Info.Data>
         </Info.IndividualContainer>
       </>
     );
