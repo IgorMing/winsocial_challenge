@@ -21,9 +21,17 @@ export async function fetchPictureInfo(imageUri) {
       image: imageUri,
       selector: 'ROLL',
     });
-    console.log(response.data.status);
-    console.log(response.data.images);
-    return Promise.resolve({});
+    const { images } = response.data;
+
+    const [image] = images;
+    if (image.status === 'Complete') {
+      const [face] = image.faces;
+      const { age, gender } = face.attributes;
+      return Promise.resolve({
+        age,
+        gender: gender.type,
+      });
+    }
   } catch (err) {
     return Promise.reject(err);
   }
