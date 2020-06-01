@@ -9,7 +9,6 @@ def add_flipper_pods!(versions = {})
   versions['Flipper-PeerTalk'] ||= '~> 0.0.4'
   versions['Flipper-RSocket'] ||= '~> 1.0'
 
-  pod 'Firebase/Core'
   pod 'FlipperKit', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitLayoutPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/SKIOSNetworkPlugin', versions['Flipper'], :configuration => 'Debug'
@@ -67,9 +66,9 @@ target 'winsocial_challenge' do
   pod 'React-RCTVibration', :path => '../node_modules/react-native/Libraries/Vibration'
   pod 'React-Core/RCTWebSocket', :path => '../node_modules/react-native/'
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
-  pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
-    'FaceDetectorMLKit'
-  ]
+  # pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
+  #   'FaceDetectorMLKit'
+  # ]
 
   pod 'React-cxxreact', :path => '../node_modules/react-native/ReactCommon/cxxreact'
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
