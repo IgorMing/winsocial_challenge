@@ -11,6 +11,8 @@ export default styled.View`
 `;
 
 export const Camera = styled(RNCamera)`
+  position: absolute;
+  flex: 1;
   height: ${height}px;
   width: ${width}px;
 `;

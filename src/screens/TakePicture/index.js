@@ -3,11 +3,8 @@ import { RNCamera } from 'react-native-camera';
 import { request, PERMISSIONS } from 'react-native-permissions';
 
 import { GradientBG } from '../../commons/styles';
-import Container, {
-  Camera,
-  SmallContainer,
-  PictureTakerButton,
-} from './styles';
+import Container, { Camera, PictureTakerButton } from './styles';
+import CameraOverlay from './cameraOverlay';
 
 export default class TakePicture extends Component {
   camera = createRef();
@@ -23,7 +20,7 @@ export default class TakePicture extends Component {
 
   takePicture = async () => {
     const pictureOptions = {
-      quality: 0.5,
+      quality: 1,
       base64: true,
       width: 300,
       height: 300,
@@ -48,6 +45,7 @@ export default class TakePicture extends Component {
             ref={this.camera}
             type={RNCamera.Constants.Type.front}
           />
+          <CameraOverlay />
           <PictureTakerButton.Container onPress={this.takePicture}>
             <PictureTakerButton.SmallContainer />
           </PictureTakerButton.Container>
