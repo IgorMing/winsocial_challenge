@@ -7,9 +7,9 @@ export default styled.View`
   align-items: center;
 `;
 
-export const Picture = styled.Image.attrs(({ image }) => ({
+export const Picture = styled.Image.attrs(({ uri }) => ({
   source: {
-    uri: `data:image/gif;base64,${image}`,
+    uri,
   },
 }))`
   height: 300px;

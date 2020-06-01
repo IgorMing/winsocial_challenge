@@ -10,9 +10,6 @@ export default class TakePicture extends Component {
   camera = createRef();
 
   componentDidMount() {
-    // this.camera.recordAsync({
-    //   mute: true,
-    // });
     request(PERMISSIONS.IOS.CAMERA).then(result => {
       console.log(result);
     });
