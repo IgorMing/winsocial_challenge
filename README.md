@@ -1,1 +1,1 @@
-# Win social's challenge
+# WinSocial's challenge
